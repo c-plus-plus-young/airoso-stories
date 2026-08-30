@@ -1,0 +1,20 @@
+:root {
+    --accents: #510606;
+    --titles: #000000;
+    --subtitles: #1C1C1C;
+    --backgrounds: #FFFFFF;
+    --small-accents: #F7D700;
+}
+
+body {
+    background-color: var(--backgrounds);
+    color: var(--subtitles);
+}
+
+h1 {
+    color: var(--titles);
+}
+
+a {
+    color: var(--titles);
+}
