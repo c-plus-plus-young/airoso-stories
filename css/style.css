@@ -20,13 +20,13 @@ h1 {
 a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: var(--small-accents);
-    font-size: 2vw;
+    font-size: 3vh;
 }
 
 #navbar {
     background-color: var(--accents);
     display: flex;
-    height: 20vh;
+    height: 15vh;
     justify-content: space-around;
     align-items: center;
     border: none;
