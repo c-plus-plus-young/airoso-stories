@@ -18,3 +18,9 @@ h1 {
 a {
     color: var(--titles);
 }
+
+.navbar {
+    background-color: var(--accents);
+    display: flex;
+    height: 20vh;
+}
