@@ -19,7 +19,7 @@ a {
     color: var(--titles);
 }
 
-.navbar {
+#navbar {
     background-color: var(--accents);
     display: flex;
     height: 20vh;
