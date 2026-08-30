@@ -7,8 +7,9 @@
 }
 
 body {
-    background-color: var(--backgrounds);
+    /* background-color: var(--backgrounds); */
     color: var(--subtitles);
+    background-color: red;
 }
 
 h1 {
