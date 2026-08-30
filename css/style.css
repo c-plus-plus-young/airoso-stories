@@ -17,9 +17,11 @@ h1 {
     color: var(--titles);
 }
 
-/* a {
-    color: var(--titles);
-} */
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: var(--small-accents);
+    font-size: 8vw;
+}
 
 #navbar {
     background-color: var(--accents);
@@ -32,5 +34,4 @@ h1 {
     width: 100vw;
     height: 20vh;
     box-sizing: border-box;
-    color: var(--small-accents);
 }
