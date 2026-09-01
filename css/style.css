@@ -7,7 +7,9 @@
 }
 
 body {
-    background-color: var(--backgrounds);
+    /* background-color: var(--backgrounds); */
+    background-image: url('/assets/images/flint-and-steel/fire-and-sword-tile.png');
+    background-repeat: repeat;
     color: var(--subtitles);
     margin: 0;
     padding: 0;
