@@ -10,7 +10,7 @@ body {
     /* background-color: var(--backgrounds); */
     background-image: url('../assets/images/flint-and-steel/fire-and-sword-tile-2.png');
     background-repeat: repeat;
-    background-size: 225px 129px; 
+    background-size: 450px 258px; 
     color: var(--subtitles);
     margin: 0;
     padding: 0;
@@ -27,7 +27,8 @@ a, a:visited, a:hover, a:active {
 }
 
 #navbar {
-    background-color: var(--accents);
+    /* background-color: var(--accents); */
+    background: linear-gradient(to bottom, var(--accents) 70%, transparent);
     display: flex;
     height: 10vh;
     justify-content: space-around;
