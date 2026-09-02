@@ -1,0 +1,100 @@
+:root {
+    --accents: #510606;
+    --titles: #000000;
+    --subtitles: #1C1C1C;
+    --backgrounds: #FFFFFF;
+    --small-accents: #F7D700;
+}
+
+body {
+    background-image: var(--backgrounds);
+    background-repeat: repeat;
+    background-size: 450px 258px; 
+    color: var(--subtitles);
+
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: var(--titles);
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: var(--small-accents);
+    font-size: 5vh;
+}
+
+#navbar {
+    /* background-color: var(--accents); */
+    background: linear-gradient(to bottom, var(--accents) 70%, transparent);
+    display: flex;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    margin: 0;
+    width: 100vw;
+    height: 20vh;
+    box-sizing: border-box;
+}
+
+#book-content {
+    width: min(90%, 1100px);
+    margin: 40px auto;
+}
+
+.book-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+}
+
+.book-detail-image {
+    width: min(35vw, 260px);
+    max-width: 260px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    flex-shrink: 0;
+}
+
+.book-detail-copy {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px 24px;
+    border-radius: 12px;
+}
+
+.book-detail-copy h1 {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+.book-detail-copy p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.book-empty {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 700px) {
+    .book-detail {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-detail-image {
+        width: min(60vw, 240px);
+    }
+}
