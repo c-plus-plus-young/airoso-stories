@@ -1,0 +1,107 @@
+:root {
+    --accents: #510606;
+    --titles: #000000;
+    --subtitles: #1C1C1C;
+    --backgrounds: #FFFFFF;
+    --small-accents: #F7D700;
+}
+
+body {
+    background-image: var(--backgrounds);
+    background-repeat: repeat;
+    background-size: 450px 258px; 
+    color: var(--subtitles);
+
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: var(--titles);
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: var(--small-accents);
+    font-size: 5vh;
+}
+
+#navbar {
+    /* background-color: var(--accents); */
+    background: linear-gradient(to bottom, var(--accents) 70%, transparent);
+    display: flex;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    margin: 0;
+    width: 100vw;
+    height: 20vh;
+    box-sizing: border-box;
+}
+
+#book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+    width: min(90%, 1200px);
+    margin: 40px auto;
+    justify-items: center;
+    align-items: start;
+}
+
+#book-grid.single-book {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: min(100%, 220px);
+    color: var(--titles);
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+}
+
+.book-card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.book-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--titles);
+}
+
+.book-empty {
+    text-align: center;
+    margin: 50px auto;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    #book-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    #book-grid {
+        grid-template-columns: 1fr;
+    }
+}

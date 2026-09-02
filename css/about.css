@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url('../assets/images/flint-and-steel/fire-and-sword-tile-2.png');
+    background-color: var(--backgrounds);
     background-repeat: repeat;
     background-size: 450px 258px; 
     color: var(--subtitles);
@@ -38,4 +38,44 @@ a, a:visited, a:hover, a:active {
     width: 100vw;
     height: 20vh;
     box-sizing: border-box;
+}
+#bio-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+#stone-bio, #annalee-bio {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#stone-bio {
+    flex-direction: row;
+}
+
+#annalee-bio {
+    flex-direction: row-reverse;
+}
+
+#stone-bio p, #annalee-bio p {
+    flex: 1;
+    margin: 0;
+}
+
+#stone-image, #annalee-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+p {
+    background-color: var(--backgrounds);
 }
