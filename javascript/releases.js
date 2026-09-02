@@ -22,8 +22,9 @@ if (bookGrid) {
 
             entries.forEach(([id, book]) => {
                 const card = document.createElement('a');
+                const query = book.query || id;
                 card.className = 'book-card';
-                card.href = `books/${book.url || `${id}.html`}`;
+                card.href = `book.html?${encodeURIComponent(query)}`;
                 card.setAttribute('aria-label', `Open ${book.name}`);
 
                 const image = document.createElement('img');
