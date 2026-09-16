@@ -36,17 +36,25 @@ h1 {
 }
 
 #logo-lockup {
+    position: relative;
     width: min(90vw, 60rem);
     text-align: center;
 }
 
 #logo-lockup h1 {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     margin: 0;
     color: var(--text);
     font-family: var(--lobster-two);
     font-size: clamp(2rem, 6vw, 5rem);
     font-weight: 400;
+    text-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.7);
 }
 
 a, a:visited, a:hover, a:active {

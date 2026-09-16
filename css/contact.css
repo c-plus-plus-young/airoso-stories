@@ -1,0 +1,39 @@
+#contact-layout {
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    align-items: center;
+    width: min(90vw, 75rem);
+    min-height: 70vh;
+    margin: auto;
+}
+
+#social,
+#email-form {
+    min-height: 20vh;
+}
+
+#sword-picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+#sword-picture img {
+    width: min(10vw, 8rem);
+    max-width: none;
+    transform: rotate(-90deg);
+}
+
+@media (max-width: 48em) {
+    #contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+
+    #sword-picture img {
+        width: min(45vw, 12rem);
+        transform: rotate(-90deg);
+    }
+}

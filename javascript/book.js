@@ -51,7 +51,7 @@ if (bookContent) {
                 <article class="book-detail">
                     <img src="${resolveImagePath(book['cover-art'])}" alt="${book.name} cover" class="book-detail-image">
                     <div class="book-detail-copy">
-                        <h1>${book.name}</h1>
+                        <h1>${book.name}<span class="release-date"> - Release Date <em>${book['release-date']}</em></span></h1>
                         <p>${book.blurb}</p>
                     </div>
                 </article>
