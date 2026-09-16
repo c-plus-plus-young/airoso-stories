@@ -79,11 +79,27 @@ function showDetails(galleryItem, title, blurb) {
     description.textContent = blurb;
     detail.append(closeButton, heading, description);
     galleryItem.classList.add('is-expanded');
+    if (isRightmostInRow(galleryItem)) {
+        galleryItem.classList.add('popup-left');
+    }
     galleryItem.appendChild(detail);
+}
+
+function isRightmostInRow(galleryItem) {
+    const itemRect = galleryItem.getBoundingClientRect();
+    const rowItems = Array.from(galleryGrid.children).filter((item) => {
+        const rect = item.getBoundingClientRect();
+        return Math.abs(rect.top - itemRect.top) < 1;
+    });
+
+    return rowItems.every((item) => {
+        const rect = item.getBoundingClientRect();
+        return item === galleryItem || rect.right <= itemRect.right;
+    });
 }
 
 function closeDetails() {
     const detail = galleryGrid?.querySelector('[data-gallery-detail="true"]');
     detail?.remove();
-    galleryGrid?.querySelector('.is-expanded')?.classList.remove('is-expanded');
+    galleryGrid?.querySelector('.is-expanded')?.classList.remove('is-expanded', 'popup-left');
 }
