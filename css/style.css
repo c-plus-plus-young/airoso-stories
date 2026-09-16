@@ -5,6 +5,10 @@
     --background: #FFFFFF;
     --text: #ffbb5b;
     --lobster-two: "Lobster Two", cursive;
+    --titles: #000000;
+    --subtitles: #1C1C1C;
+    --backgrounds: #FFFFFF;
+    --small-accents: #F7D700;
 }
 
 @font-face {
@@ -20,8 +24,8 @@ html {
 }
 
 body {
-    background: var(--picture);
-    color: var(--text);
+    background: var(--backgrounds);
+    color: var(--subtitles);
     font-family: "Times New Roman", Times, serif;
     min-height: 100vh;
     display: flex;
@@ -31,17 +35,22 @@ body {
     align-items: center;
 }
 
+body.home {
+    background: var(--picture);
+    color: var(--text);
+}
+
 h1 {
     color: var(--titles);
 }
 
-#logo-lockup {
+body.home #logo-lockup {
     position: relative;
     width: min(90vw, 60rem);
     text-align: center;
 }
 
-#logo-lockup h1 {
+body.home #logo-lockup h1 {
     position: absolute;
     inset: 0;
     z-index: 1;
@@ -72,7 +81,7 @@ img {
     margin: 0 auto;
 }
 
-#logo-lockup #logo {
+body.home #logo-lockup #logo {
     width: 100%;
     max-width: none;
 }

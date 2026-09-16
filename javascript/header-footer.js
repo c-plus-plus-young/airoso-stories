@@ -69,6 +69,38 @@ const sharedStyles = `
         height: 1em;
         margin: 0;
     }
+
+    @media (max-width: 48em) {
+        #navbar {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            min-height: auto;
+            padding: 0.75rem 0.5rem;
+            gap: 0.5rem;
+            font-size: clamp(0.9rem, 3.2vw, 1.25rem);
+        }
+
+        #navbar a {
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        #navbar a:nth-child(4) {
+            grid-column: 2 / span 2;
+        }
+
+        #footer {
+            min-height: auto;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 0.75rem 1rem;
+            font-size: clamp(0.75rem, 2.5vw, 1rem);
+        }
+
+        #footer p {
+            margin: 0;
+        }
+    }
 `;
 
 const footer = `
