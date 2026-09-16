@@ -39,7 +39,14 @@ if (galleryGrid) {
                 titleElement.textContent = title;
 
                 tile.append(image, titleElement);
-                tile.addEventListener('click', () => showDetails(galleryItem, title, item.blurb || ''));
+                tile.addEventListener('click', () => {
+                    if (galleryItem.classList.contains('is-expanded')) {
+                        closeDetails();
+                        return;
+                    }
+
+                    showDetails(galleryItem, title, item.blurb || '');
+                });
                 galleryItem.appendChild(tile);
                 galleryGrid.appendChild(galleryItem);
             });
