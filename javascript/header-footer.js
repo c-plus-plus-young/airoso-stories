@@ -57,13 +57,25 @@ const sharedStyles = `
         height: 1em;
         margin: 0;
     }
+
+    .github-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
+    }
+
+    .github-link img {
+        width: 1em;
+        height: 1em;
+        margin: 0;
+    }
 `;
 
 const footer = `
     <footer id="footer">
         <p>&copy; 2023 Airoso Stories. All rights reserved.</p>
         <p><a class="instagram-link" href="https://www.instagram.com/airosostories/" target="_blank" rel="noopener noreferrer"><img src="${pageRoot}assets/images/insta-white.png" alt="">Follow us on Instagram</a></p>
-        <p><a href="https://github.com/c-plus-plus-young/">Developed by c-plus-plus-young</a></p>
+        <p><a class="github-link" href="https://github.com/c-plus-plus-young/" target="_blank" rel="noopener noreferrer"><img src="${pageRoot}assets/images/github-white.png" alt="GitHub">Developed by c-plus-plus-young</a></p>
     </footer>
 `;
 

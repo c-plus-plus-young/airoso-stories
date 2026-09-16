@@ -1,15 +1,44 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 #contact-layout {
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 45% 10% 45%;
     align-items: center;
-    width: min(90vw, 75rem);
-    min-height: 70vh;
-    margin: auto;
+    width: 100%;
+    min-height: calc(100vh - 18vh);
+    padding: 1.5rem 5vw;
 }
 
-#social,
-#email-form {
-    min-height: 20vh;
+#social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+#social p {
+    margin: 0;
+}
+
+#social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    color: #1C1C1C;
+    font-size: clamp(1.25rem, 3vw, 2.5rem);
+    text-decoration: none;
+}
+
+#social a img {
+    width: 1.35em;
+    height: 1.35em;
+    object-fit: contain;
 }
 
 #sword-picture {
@@ -20,20 +49,25 @@
 }
 
 #sword-picture img {
-    width: min(10vw, 8rem);
+    width: calc(100vh - 18vh - 3rem);
     max-width: none;
+    height: auto;
     transform: rotate(-90deg);
+}
+
+#email-form {
+    min-width: 0;
 }
 
 @media (max-width: 48em) {
     #contact-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 2rem 0;
+        min-height: auto;
+        padding: 2rem 5vw;
     }
 
     #sword-picture img {
-        width: min(45vw, 12rem);
-        transform: rotate(-90deg);
+        width: min(80vw, 30rem);
     }
 }
