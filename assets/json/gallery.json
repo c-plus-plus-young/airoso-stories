@@ -1,0 +1,20 @@
+{
+  "still-beating-heart": {
+    "name": "The Still Beating Heart",
+    "cover-art": "assets/images/still-beating-heart.jpg",
+    "query": "still-beating-heart",
+    "blurb": "Promotional art for the short story 'The Still Beating Heart'."
+  },
+  "mary-and-sinzer": {
+    "name": "Mary and Sinzer",
+    "cover-art": "assets/images/flint-and-steel/mary-and-sinzer.jpg",
+    "query": "mary-and-sinzer",
+    "blurb": "Two of the main characters in 'Flint and Steel'."
+  },
+  "antagonist": {
+    "name": "Matilda",
+    "cover-art": "assets/images/flint-and-steel/matilda.jpg",
+    "query": "matilda",
+    "blurb": "Matilda, an antagonist in 'Flint and Steel'."
+  }
+}

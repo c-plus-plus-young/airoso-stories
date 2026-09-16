@@ -7,11 +7,7 @@
 }
 
 body {
-    background-color: var(--backgrounds);
-    background-repeat: repeat;
-    background-size: 450px 258px; 
     color: var(--subtitles);
-
     margin: 0;
     padding: 0;
 }
@@ -20,39 +16,26 @@ h1 {
     color: var(--titles);
 }
 
-a, a:visited, a:hover, a:active {
+#bio-column a, #bio-column a:visited, #bio-column a:hover, #bio-column a:active {
     text-decoration: none;
     color: var(--small-accents);
     font-size: 5vh;
 }
 
-#navbar {
-    /* background-color: var(--accents); */
-    background: linear-gradient(to bottom, var(--accents) 70%, transparent);
-    display: flex;
-    height: 10vh;
-    justify-content: space-around;
-    align-items: center;
-    border: none;
-    margin: 0;
-    width: 100vw;
-    height: 20vh;
-    box-sizing: border-box;
-}
 #bio-column {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    padding: 20px;
+    gap: 2rem;
+    padding: 1.25rem;
 }
 
 #stone-bio, #annalee-bio {
     width: 80%;
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 #stone-bio {
@@ -69,13 +52,28 @@ a, a:visited, a:hover, a:active {
 }
 
 #stone-image, #annalee-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 30vh;
+    height: 30vh;
+    border-radius: 2%;
     object-fit: cover;
     flex-shrink: 0;
 }
 
-p {
+#fire-symbol {
+    width: min(60vw, 37.5rem);
+    height: auto;
+    margin: -4rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+#bio-column p {
     background-color: var(--backgrounds);
+}
+
+@media (max-width: 48em) {
+    #fire-symbol {
+        width: min(80vw, 25rem);
+        margin: 1.25rem 0;
+    }
 }

@@ -1,19 +1,34 @@
 :root {
-    --accents: #510606;
-    --titles: #000000;
-    --subtitles: #1C1C1C;
-    --backgrounds: #FFFFFF;
-    --small-accents: #F7D700;
+    --main: #510606;
+    --picture: #581b06;
+    --accent: #1C1C1C;
+    --background: #FFFFFF;
+    --text: #ffbb5b;
+    --lobster-two: "Lobster Two", cursive;
+}
+
+@font-face {
+    font-family: "Lobster Two";
+    src: url("../assets/fonts/Lobster_Two/LobsterTwo-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    min-height: 100%;
 }
 
 body {
-    background-image: url('../assets/images/flint-and-steel/fire-and-sword-tile-2.png');
-    background-repeat: repeat;
-    background-size: 450px 258px; 
-    color: var(--subtitles);
-
+    background: var(--picture);
+    color: var(--text);
+    font-family: "Times New Roman", Times, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 h1 {
@@ -23,19 +38,14 @@ h1 {
 a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: var(--small-accents);
-    font-size: 5vh;
 }
 
-#navbar {
-    /* background-color: var(--accents); */
-    background: linear-gradient(to bottom, var(--accents) 70%, transparent);
-    display: flex;
-    height: 10vh;
-    justify-content: space-around;
-    align-items: center;
-    border: none;
-    margin: 0;
-    width: 100vw;
-    height: 20vh;
-    box-sizing: border-box;
+img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    margin: 0 auto;
 }

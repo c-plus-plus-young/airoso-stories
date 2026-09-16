@@ -9,7 +9,7 @@
 body {
     background-image: var(--backgrounds);
     background-repeat: repeat;
-    background-size: 450px 258px; 
+    background-size: 28.125rem 16.125rem;
     color: var(--subtitles);
 
     margin: 0;
@@ -20,32 +20,18 @@ h1 {
     color: var(--titles);
 }
 
-a, a:visited, a:hover, a:active {
+#book-grid a, #book-grid a:visited, #book-grid a:hover, #book-grid a:active {
     text-decoration: none;
     color: var(--small-accents);
     font-size: 5vh;
 }
 
-#navbar {
-    /* background-color: var(--accents); */
-    background: linear-gradient(to bottom, var(--accents) 70%, transparent);
-    display: flex;
-    height: 10vh;
-    justify-content: space-around;
-    align-items: center;
-    border: none;
-    margin: 0;
-    width: 100vw;
-    height: 20vh;
-    box-sizing: border-box;
-}
-
 #book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 24px;
-    width: min(90%, 1200px);
-    margin: 40px auto;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1.5rem;
+    width: min(90%, 75rem);
+    margin: 2.5rem auto;
     justify-items: center;
     align-items: start;
 }
@@ -60,8 +46,8 @@ a, a:visited, a:hover, a:active {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 12px;
-    width: min(100%, 220px);
+    gap: 0.75rem;
+    width: min(100%, 13.75rem);
     color: var(--titles);
     text-decoration: none;
     text-align: center;
@@ -69,7 +55,7 @@ a, a:visited, a:hover, a:active {
 }
 
 .book-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-0.1875rem);
 }
 
 .book-card img {
@@ -77,8 +63,8 @@ a, a:visited, a:hover, a:active {
     aspect-ratio: 3 / 4;
     object-fit: cover;
     display: block;
-    border-radius: 10px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 0.625rem;
+    box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .book-title {
@@ -90,17 +76,17 @@ a, a:visited, a:hover, a:active {
 
 .book-empty {
     text-align: center;
-    margin: 50px auto;
+    margin: 3.125rem auto;
     font-size: 1.1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
     #book-grid {
-        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        grid-template-columns: repeat(2, minmax(8.75rem, 1fr));
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30em) {
     #book-grid {
         grid-template-columns: 1fr;
     }

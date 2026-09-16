@@ -1,78 +1,64 @@
 :root {
-    --accents: #510606;
-    --titles: #000000;
-    --subtitles: #1C1C1C;
-    --backgrounds: #FFFFFF;
-    --small-accents: #F7D700;
+    --main: #510606;
+    --accent: #1C1C1C;
+    --background: #FFFFFF;
+    --text: #ffbb5b;
 }
 
 body {
     background-image: var(--backgrounds);
     background-repeat: repeat;
-    background-size: 450px 258px; 
+    background-size: 28.125rem 16.125rem;
     color: var(--subtitles);
 
     margin: 0;
     padding: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 h1 {
     color: var(--titles);
 }
 
-a, a:visited, a:hover, a:active {
+#book-content a, #book-content a:visited, #book-content a:hover, #book-content a:active {
     text-decoration: none;
     color: var(--small-accents);
     font-size: 5vh;
 }
 
-#navbar {
-    /* background-color: var(--accents); */
-    background: linear-gradient(to bottom, var(--accents) 70%, transparent);
-    display: flex;
-    height: 10vh;
-    justify-content: space-around;
-    align-items: center;
-    border: none;
-    margin: 0;
-    width: 100vw;
-    height: 20vh;
-    box-sizing: border-box;
-}
-
 #book-content {
-    width: min(90%, 1100px);
-    margin: 40px auto;
+    width: min(90%, 68.75rem);
+    margin: 2.5rem auto;
 }
 
 .book-detail {
     display: flex;
     align-items: flex-start;
-    gap: 30px;
-    padding: 20px;
+    gap: 1.875rem;
+    padding: 1.25rem;
 }
 
 .book-detail-image {
-    width: min(35vw, 260px);
-    max-width: 260px;
+    width: min(35vw, 16.25rem);
+    max-width: 16.25rem;
     height: auto;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.375rem rgba(0, 0, 0, 0.18);
     flex-shrink: 0;
 }
 
 .book-detail-copy {
     flex: 1;
     background: rgba(255, 255, 255, 0.8);
-    padding: 20px 24px;
-    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem;
 }
 
 .book-detail-copy h1 {
     margin-top: 0;
-    margin-bottom: 14px;
+    margin-bottom: 0.875rem;
 }
 
 .book-detail-copy p {
@@ -83,11 +69,11 @@ a, a:visited, a:hover, a:active {
 
 .book-empty {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 3.125rem;
     font-size: 1.1rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 43.75em) {
     .book-detail {
         flex-direction: column;
         align-items: center;
@@ -95,6 +81,6 @@ a, a:visited, a:hover, a:active {
     }
 
     .book-detail-image {
-        width: min(60vw, 240px);
+        width: min(60vw, 15rem);
     }
 }
