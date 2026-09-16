@@ -43,12 +43,18 @@ function initializeLightbox() {
         return;
     }
 
-    window.GLightbox({ selector: '.gallery-link' });
+    window.GLightbox({
+        selector: '.gallery-link',
+        descPosition: 'right'
+    });
     lightboxInitialized = true;
 }
 
 function initializeJustifiedGallery() {
-    const justifiedGallery = new JustifiedGallery(galleryGrid);
+    const justifiedGallery = new JustifiedGallery(galleryGrid, {
+        rowHeight: 320,
+        margins: 16
+    });
     justifiedGallery.init();
 }
 

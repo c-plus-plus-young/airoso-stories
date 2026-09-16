@@ -4,7 +4,7 @@
 }
 
 #gallery-grid {
-    width: min(90vw, 75rem);
+    width: min(94vw, 90rem);
     margin: 2.5rem auto;
 }
 
@@ -37,4 +37,21 @@
 .gallery-empty {
     color: var(--gallery-text);
     text-align: center;
+}
+
+.glightbox-clean .gslide-description {
+    width: min(28vw, 22rem);
+    background: var(--gallery-background);
+    color: var(--gallery-text);
+}
+
+.glightbox-clean .gslide-title,
+.glightbox-clean .gslide-desc {
+    color: var(--gallery-text);
+}
+
+@media (max-width: 48em) {
+    .glightbox-clean .gslide-description {
+        width: 100%;
+    }
 }
