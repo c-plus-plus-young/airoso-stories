@@ -14,7 +14,7 @@ function getBookIdFromQuery() {
         return null;
     }
 
-    return decodeURIComponent(rawValue);
+    return rawValue;
 }
 
 function resolveImagePath(path) {
@@ -39,7 +39,7 @@ if (bookContent) {
         })
         .then((books) => {
             const book = bookId
-                ? Object.entries(books).find(([, item]) => (item.query || item.name) === bookId)?.[1]
+                ? Object.entries(books).find(([id, item]) => id === bookId || (item.query || item.name) === bookId)?.[1]
                 : null;
 
             if (!book) {

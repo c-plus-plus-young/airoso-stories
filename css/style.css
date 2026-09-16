@@ -35,6 +35,20 @@ h1 {
     color: var(--titles);
 }
 
+#logo-lockup {
+    width: min(90vw, 60rem);
+    text-align: center;
+}
+
+#logo-lockup h1 {
+    width: 100%;
+    margin: 0;
+    color: var(--text);
+    font-family: var(--lobster-two);
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 400;
+}
+
 a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: var(--small-accents);
@@ -48,4 +62,9 @@ img {
     max-height: 82vh;
     object-fit: contain;
     margin: 0 auto;
+}
+
+#logo-lockup #logo {
+    width: 100%;
+    max-width: none;
 }

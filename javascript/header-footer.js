@@ -97,8 +97,8 @@ function getNewestBook(books) {
 }
 
 function addHeader(bookEntry) {
-    const bookQuery = bookEntry?.book.query || bookEntry?.id || '';
-    const bookHref = `${pageRoot}pages/book.html?book=${encodeURIComponent(bookQuery)}`;
+    const bookQuery = bookEntry?.id || bookEntry?.book.query || '';
+    const bookHref = `${pageRoot}pages/book.html?${encodeURIComponent(bookQuery)}`;
     const header = `
         <header id="navbar">
             <a href="${pageRoot}index.html">Home</a>
