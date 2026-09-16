@@ -1,4 +1,56 @@
+import { JustifiedGallery } from 'https://cdn.jsdelivr.net/npm/justified-gallery@4.0.2/+esm';
+
 const galleryGrid = document.getElementById('gallery-grid');
+let lightboxInitialized = false;
+
+function resolveImagePath(path) {
+    if (!path) {
+        return '';
+    }
+
+    return path.startsWith('../') || path.startsWith('/') || path.startsWith('http')
+        ? path
+        : `../${path}`;
+}
+
+function createGalleryLink(id, item) {
+    const title = item.name || id;
+    const imagePath = resolveImagePath(item['cover-art']);
+    const link = document.createElement('a');
+    const image = document.createElement('img');
+
+    link.className = 'gallery-link';
+    link.href = imagePath;
+    link.dataset.title = title;
+    link.dataset.description = item.blurb || '';
+    link.setAttribute('aria-label', `Open ${title}`);
+
+    image.src = imagePath;
+    image.alt = title;
+    image.loading = 'lazy';
+
+    link.appendChild(image);
+    return link;
+}
+
+function initializeLightbox() {
+    if (lightboxInitialized) {
+        return;
+    }
+
+    if (typeof window.GLightbox !== 'function') {
+        window.addEventListener('load', initializeLightbox, { once: true });
+        return;
+    }
+
+    window.GLightbox({ selector: '.gallery-link' });
+    lightboxInitialized = true;
+}
+
+function initializeJustifiedGallery() {
+    const justifiedGallery = new JustifiedGallery(galleryGrid);
+    justifiedGallery.init();
+}
 
 if (galleryGrid) {
     fetch('../assets/json/gallery.json')
@@ -17,89 +69,14 @@ if (galleryGrid) {
             }
 
             entries.forEach(([id, item]) => {
-                const galleryItem = document.createElement('article');
-                const tile = document.createElement('button');
-                const imagePath = item['cover-art'] || '';
-                const title = item.name || id;
-
-                galleryItem.className = 'gallery-item';
-                tile.className = 'gallery-tile';
-                tile.type = 'button';
-                tile.setAttribute('aria-label', `Show details for ${title}`);
-
-                const image = document.createElement('img');
-                image.src = imagePath.startsWith('../') || imagePath.startsWith('/')
-                    ? imagePath
-                    : `../${imagePath}`;
-                image.alt = title;
-                image.loading = 'lazy';
-
-                const titleElement = document.createElement('span');
-                titleElement.className = 'gallery-title';
-                titleElement.textContent = title;
-
-                tile.append(image, titleElement);
-                tile.addEventListener('click', () => {
-                    if (galleryItem.classList.contains('is-expanded')) {
-                        closeDetails();
-                        return;
-                    }
-
-                    showDetails(galleryItem, title, item.blurb || '');
-                });
-                galleryItem.appendChild(tile);
-                galleryGrid.appendChild(galleryItem);
+                galleryGrid.appendChild(createGalleryLink(id, item));
             });
+
+            initializeJustifiedGallery();
+            initializeLightbox();
         })
         .catch((error) => {
             console.error(error);
             galleryGrid.innerHTML = '<p class="gallery-empty">Unable to load the gallery right now.</p>';
         });
-}
-
-function showDetails(galleryItem, title, blurb) {
-    closeDetails();
-
-    const detail = document.createElement('aside');
-    const closeButton = document.createElement('button');
-    const heading = document.createElement('h2');
-    const description = document.createElement('p');
-
-    detail.className = 'gallery-detail';
-    detail.dataset.galleryDetail = 'true';
-    detail.setAttribute('aria-live', 'polite');
-
-    closeButton.className = 'gallery-close';
-    closeButton.type = 'button';
-    closeButton.setAttribute('aria-label', `Close details for ${title}`);
-    closeButton.textContent = 'x';
-    closeButton.addEventListener('click', closeDetails);
-
-    heading.textContent = title;
-    description.textContent = blurb;
-    detail.append(closeButton, heading, description);
-    galleryItem.classList.add('is-expanded');
-    if (isRightmostInRow(galleryItem)) {
-        galleryItem.classList.add('popup-left');
-    }
-    galleryItem.appendChild(detail);
-}
-
-function isRightmostInRow(galleryItem) {
-    const itemRect = galleryItem.getBoundingClientRect();
-    const rowItems = Array.from(galleryGrid.children).filter((item) => {
-        const rect = item.getBoundingClientRect();
-        return Math.abs(rect.top - itemRect.top) < 1;
-    });
-
-    return rowItems.every((item) => {
-        const rect = item.getBoundingClientRect();
-        return item === galleryItem || rect.right <= itemRect.right;
-    });
-}
-
-function closeDetails() {
-    const detail = galleryGrid?.querySelector('[data-gallery-detail="true"]');
-    detail?.remove();
-    galleryGrid?.querySelector('.is-expanded')?.classList.remove('is-expanded', 'popup-left');
 }
