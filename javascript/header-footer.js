@@ -59,16 +59,6 @@ const sharedStyles = `
     }
 `;
 
-const header = `
-    <header id="navbar">
-        <a href="${pageRoot}index.html">Home</a>
-        <a href="${pageRoot}pages/about.html">About</a>
-        <a href="${pageRoot}pages/gallery.html">Gallery</a>
-        <a href="${pageRoot}pages/book.html">Upcoming Release</a>
-        <a href="${pageRoot}pages/contact.html">Contact Us</a>
-    </header>
-`;
-
 const footer = `
     <footer id="footer">
         <p>&copy; 2023 Airoso Stories. All rights reserved.</p>
@@ -80,5 +70,57 @@ const footer = `
 const layoutStyle = document.createElement('style');
 layoutStyle.textContent = sharedStyles;
 document.head.appendChild(layoutStyle);
-document.body.insertAdjacentHTML('afterbegin', header);
 document.body.insertAdjacentHTML('beforeend', footer);
+
+function getNewestBook(books) {
+    return Object.entries(books).reduce((newest, [id, book]) => {
+        if (!newest) {
+            return { id, book };
+        }
+
+        const currentIsTbd = String(book['release-date']).toUpperCase() === 'TBD';
+        const newestIsTbd = String(newest.book['release-date']).toUpperCase() === 'TBD';
+
+        if (currentIsTbd && !newestIsTbd) {
+            return { id, book };
+        }
+
+        if (currentIsTbd || newestIsTbd) {
+            return newest;
+        }
+
+        const currentDate = Date.parse(book['release-date']);
+        const newestDate = Date.parse(newest.book['release-date']);
+
+        return currentDate > newestDate ? { id, book } : newest;
+    }, null);
+}
+
+function addHeader(bookEntry) {
+    const bookQuery = bookEntry?.book.query || bookEntry?.id || '';
+    const bookHref = `${pageRoot}pages/book.html?book=${encodeURIComponent(bookQuery)}`;
+    const header = `
+        <header id="navbar">
+            <a href="${pageRoot}index.html">Home</a>
+            <a href="${pageRoot}pages/about.html">About</a>
+            <a href="${pageRoot}pages/gallery.html">Gallery</a>
+            <a href="${bookHref}">Upcoming Release</a>
+            <a href="${pageRoot}pages/contact.html">Contact Us</a>
+        </header>
+    `;
+
+    document.body.insertAdjacentHTML('afterbegin', header);
+}
+
+fetch(`${pageRoot}assets/json/books.json`)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`Failed to load books: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then((books) => addHeader(getNewestBook(books)))
+    .catch((error) => {
+        console.error(error);
+        addHeader(null);
+    });
