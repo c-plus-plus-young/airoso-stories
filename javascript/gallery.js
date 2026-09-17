@@ -65,8 +65,8 @@ function getGalleryRowHeight() {
         return Math.round(Math.max(180, Math.min(mobileHeight, 360)));
     }
 
-    const viewportBasedHeight = Math.min(window.innerHeight * 0.32, window.innerWidth * 0.3);
-    return Math.round(Math.max(160, Math.min(viewportBasedHeight, 480)));
+    const viewportBasedHeight = Math.min(window.innerHeight * 0.4, window.innerWidth * 0.375);
+    return Math.round(Math.max(200, Math.min(viewportBasedHeight, 600)));
 }
 
 let resizeTimer;
