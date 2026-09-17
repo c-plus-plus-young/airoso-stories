@@ -2,6 +2,7 @@ import { JustifiedGallery } from 'https://cdn.jsdelivr.net/npm/justified-gallery
 
 const galleryGrid = document.getElementById('gallery-grid');
 let lightboxInitialized = false;
+let justifiedGallery;
 
 function resolveImagePath(path) {
     if (!path) {
@@ -51,12 +52,33 @@ function initializeLightbox() {
 }
 
 function initializeJustifiedGallery() {
-    const justifiedGallery = new JustifiedGallery(galleryGrid, {
-        rowHeight: 320,
+    justifiedGallery = new JustifiedGallery(galleryGrid, {
+        rowHeight: getGalleryRowHeight(),
         margins: 16
     });
     justifiedGallery.init();
 }
+
+function getGalleryRowHeight() {
+    if (window.matchMedia('(max-width: 48em)').matches) {
+        const mobileHeight = Math.min(window.innerHeight * 0.42, window.innerWidth * 0.5);
+        return Math.round(Math.max(180, Math.min(mobileHeight, 360)));
+    }
+
+    const viewportBasedHeight = Math.min(window.innerHeight * 0.32, window.innerWidth * 0.3);
+    return Math.round(Math.max(160, Math.min(viewportBasedHeight, 480)));
+}
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+        if (justifiedGallery) {
+            justifiedGallery.destroy();
+            initializeJustifiedGallery();
+        }
+    }, 150);
+});
 
 if (galleryGrid) {
     fetch('../assets/json/gallery.json')

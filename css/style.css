@@ -85,3 +85,13 @@ body.home #logo-lockup #logo {
     width: 100%;
     max-width: none;
 }
+
+@media (max-width: 48em) {
+    body.home {
+        min-height: auto;
+    }
+
+    body.home #logo-lockup {
+        width: 100%;
+    }
+}

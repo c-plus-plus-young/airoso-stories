@@ -74,6 +74,11 @@
         height: min(60vw, 18rem);
     }
 
+    #stone-bio p, #annalee-bio p {
+        font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+        line-height: 1.5;
+    }
+
     #fire-symbol {
         width: min(80vw, 25rem);
         margin: 1.25rem 0;

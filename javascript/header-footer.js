@@ -75,9 +75,9 @@ const sharedStyles = `
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             min-height: auto;
-            padding: 0.75rem 0.5rem;
-            gap: 0.5rem;
-            font-size: clamp(0.9rem, 3.2vw, 1.25rem);
+            padding: clamp(0.4rem, 2vw, 0.75rem) clamp(0.25rem, 2vw, 0.5rem);
+            gap: clamp(0.25rem, 1.5vw, 0.5rem);
+            font-size: clamp(0.7rem, 3vw, 1.15rem);
         }
 
         #navbar a {
@@ -89,12 +89,17 @@ const sharedStyles = `
             grid-column: 2 / span 2;
         }
 
+        #navbar a:nth-child(5) {
+            grid-column: 4 / span 2;
+        }
+
         #footer {
             min-height: auto;
-            flex-wrap: wrap;
-            gap: 0.5rem 1rem;
-            padding: 0.75rem 1rem;
-            font-size: clamp(0.75rem, 2.5vw, 1rem);
+            flex-direction: column;
+            gap: clamp(0.25rem, 1.5vw, 0.5rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem) 1rem;
+            font-size: clamp(0.65rem, 2.5vw, 0.95rem);
+            text-align: center;
         }
 
         #footer p {
