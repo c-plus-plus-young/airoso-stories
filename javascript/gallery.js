@@ -52,7 +52,7 @@ function initializeLightbox() {
 
 function initializeJustifiedGallery() {
     const justifiedGallery = new JustifiedGallery(galleryGrid, {
-        rowHeight: 480,
+        rowHeight: 320,
         margins: 16
     });
     justifiedGallery.init();

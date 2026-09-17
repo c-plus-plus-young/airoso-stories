@@ -105,7 +105,7 @@ const sharedStyles = `
 
 const footer = `
     <footer id="footer">
-        <p>&copy; 2023 Airoso Stories. All rights reserved.</p>
+        <p>&copy; 2026 Airoso Stories. All rights reserved.</p>
         <p><a class="instagram-link" href="https://www.instagram.com/airosostories/" target="_blank" rel="noopener noreferrer"><img src="${pageRoot}assets/images/insta-white.png" alt="">Follow us on Instagram</a></p>
         <p><a class="github-link" href="https://github.com/c-plus-plus-young/" target="_blank" rel="noopener noreferrer"><img src="${pageRoot}assets/images/github-white.png" alt="GitHub">Developed by c-plus-plus-young</a></p>
     </footer>
